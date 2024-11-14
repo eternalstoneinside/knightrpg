@@ -1,0 +1,70 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: Arial, sans-serif;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   background-color: #f4f4f9;
+}
+
+.container {
+   text-align: center;
+   background-color: #ccc;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.character {
+   position: relative;
+   text-align: center;
+}
+
+#knight-image {
+   width: 150px;
+   margin-bottom: 15px;
+}
+
+.character p {
+   font-size: 18px;
+   margin-bottom: 10px;
+}
+
+.controls button {
+   margin: 10px;
+   padding: 10px;
+   font-size: 16px;
+   cursor: pointer;
+}
+
+@keyframes shake {
+   0% {
+      transform: translateX(0);
+   }
+
+   25% {
+      transform: translateX(-10px);
+   }
+
+   50% {
+      transform: translateX(10px);
+   }
+
+   75% {
+      transform: translateX(-10px);
+   }
+
+   100% {
+      transform: translateX(0);
+   }
+}
+
+.shake {
+   animation: shake 0.5s ease-in-out;
+}

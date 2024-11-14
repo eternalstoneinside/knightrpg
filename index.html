@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Knight RPG</title>
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+   <div class="container">
+      <h1>Your Knight</h1>
+      <div class="character">
+         <!-- Додаємо зображення лицаря -->
+         <img id="knight-image" src="img/knightbased.png" alt="Knight Image">
+         <p><strong>Name:</strong> Sir Braveheart</p>
+         <p><strong>Health:</strong> <span id="health">100</span></p>
+         <p><strong>Attack:</strong> <span id="attack">10</span></p>
+         <p><strong>Armor:</strong> <span id="armor">5</span></p>
+      </div>
+      <div class="controls">
+         <button onclick="increaseStat('health')">Increase Health</button>
+         <button onclick="increaseStat('attack')">Increase Attack</button>
+         <button onclick="increaseStat('armor')">Increase Armor</button>
+      </div>
+   </div>
+
+   <script src="js/script.js"></script>
+</body>
+
+</html>

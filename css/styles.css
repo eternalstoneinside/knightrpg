@@ -19,17 +19,137 @@ body {
    text-align: center;
    background-color: #ccc;
    padding: 20px;
+   width: 550px;
    border-radius: 8px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    position: relative;
    /* Робимо контейнер відносно позиціонованим */
    z-index: 1;
    /* Підвищуємо пріоритет для контейнера */
+   overflow: hidden;
+}
+
+.header {
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
+   justify-content: end;
+}
+
+.settings_btn {
+   display: flex;
+   margin-left: 15px;
+   background-color: transparent;
+   border: 0;
+   cursor: pointer;
+
+
+}
+
+.settings_btn.active {}
+
+
+
+#toggle-music {
+   height: 20px;
+}
+
+#toggle-lang {
+   padding: 2px;
+}
+
+.settings_btn img {
+   transition: .5s ease;
+   width: 25px;
+}
+
+.settings_btn.active img {
+   transform: rotate(360deg);
+}
+
+.settings {
+   display: flex;
+   align-items: center;
+   padding: 5px;
+   gap: 10px;
+   transform: translateX(-600px);
+   transition: all .5s ease;
+}
+
+.settings.active {
+   background: rgba(0, 0, 0, 0.1);
+}
+
+#change-name-btn {
+   padding: 2px;
+}
+
+/* Оверлей - затемнює фон */
+#overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.7);
+   /* чорний фон з прозорістю */
+   display: none;
+   /* Сховано за замовчуванням */
+   z-index: 1;
+
+   /* Показується поверх інших елементів */
+}
+
+/* Стилі для модального вікна */
+#name-change-modal {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: #fff;
+   padding: 20px;
+   border: 2px solid #333;
+   border-radius: 8px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   z-index: 102;
+   transition: all .5s ease;
+   opacity: 1;
+}
+
+#name-change-modal input {
+   padding: 10px;
+   margin: 10px 0;
+   border: 1px solid black;
+   width: 100%;
+}
+
+#name-change-modal button {
+   padding: 8px 15px;
+   margin-top: 5px;
+   cursor: pointer;
+   width: 100%;
+}
+
+.settings.active {
+   transform: translateX(0);
+}
+
+.power {
+
+   font-size: 18px;
 }
 
 .character {
    position: relative;
    text-align: center;
+   z-index: -1;
+}
+
+.stats {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
 }
 
 #knight-image {
@@ -42,12 +162,45 @@ body {
    margin-bottom: 10px;
 }
 
+.characteristic {
+   background-color: #ccc;
+   transform: translateX(450px);
+   transition: all .5s ease;
+   opacity: 0;
+}
+
+.characteristic.active {
+   transform: translateX(0px);
+   opacity: 1;
+}
+
+.controls {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 10px;
+   margin-top: 5px;
+}
+
 .controls button {
-   margin: 10px;
    padding: 10px;
    font-size: 16px;
    cursor: pointer;
 }
+
+.menu {
+   margin-top: 5px;
+   display: flex;
+   justify-content: end;
+}
+
+.menu button {
+   padding: 10px;
+   font-size: 16px;
+   cursor: pointer;
+}
+
+
 
 @keyframes shake {
    0% {

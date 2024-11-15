@@ -6,33 +6,63 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Knight RPG</title>
    <link rel="stylesheet" href="css/styles.css">
+   <meta name="theme-color" content="#ссс">
+   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+   <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
 <body>
    <div class="container">
-      <div class="music">
-         <audio id="background-music" loop autoplay>
-            <source src="sounds/bgmusic.wav" type="audio/mpeg">
-            Ваш браузер не підтримує елемент <code>audio</code>.
-         </audio>
-         <button id="toggle-music"><img src="img/music.png" alt=""></button>
+      <div id="overlay" style="display: none;"></div>
+      <div id="name-change-modal" style="transform: translate(-50%, -300%)">
+         <h3>Enter new name</h3>
+         <input type="text" id="new-name" placeholder="New name">
+         <button id="save-name-btn">Save</button>
+         <button id="cancel-name-btn">Cancel</button>
       </div>
-      <h1>Your Knight</h1>
+      <div class="header">
+         <div class="settings">
 
+            <button id="change-name-btn">Change name</button>
+            <!-- Модальне вікно для зміни імені -->
+
+            <div class="language-switcher">
+               <button id="toggle-lang">EN</button> <!-- Початково буде "UA", мова українська -->
+            </div>
+            <div class="music">
+               <audio id="background-music" loop autoplay>
+                  <source src="sounds/bgmusic.wav" type="audio/mpeg">
+                  Ваш браузер не підтримує елемент <code>audio</code>.
+               </audio>
+               <button id="toggle-music"><img id="music-icon" src="img/musicon.svg" alt=""></button>
+            </div>
+         </div>
+         <button class="settings_btn"><img src="img/settings.svg" alt="settings"></button>
+      </div>
+
+      <h1>Sir Braveheart</h1>
+      <p class="power"><strong>Power:</strong> <span id="power">0</span></p>
       <div class="character">
          <!-- Додаємо зображення лицаря -->
          <img id="knight-image" src="img/knightbased.png" alt="Knight Image">
-         <p><strong>Name:</strong> Sir Braveheart</p>
-         <p><strong>Health:</strong> <span id="health">100</span></p>
-         <p><strong>Attack:</strong> <span id="attack">10</span></p>
-         <p><strong>Armor:</strong> <span id="armor">5</span></p>
       </div>
-      <div class="controls">
-         <button onclick="increaseStat('health')">Increase Health</button>
-         <button onclick="increaseStat('attack')">Increase Attack</button>
-         <button onclick="increaseStat('armor')">Increase Armor</button>
+      <div class="characteristic">
+         <div class="stats">
+            <p><strong>Health:</strong> <span id="health">100</span></p>
+            <p><strong>Attack:</strong> <span id="attack">10</span></p>
+            <p><strong>Armor:</strong> <span id="armor">5</span></p>
+         </div>
+         <div class="controls">
+            <button onclick="increaseStat('health')">Increase Health</button>
+            <button onclick="increaseStat('attack')">Increase Attack</button>
+            <button onclick="increaseStat('armor')">Increase Armor</button>
+         </div>
+      </div>
+      <div class="menu">
+         <button class="upgrade__btn">Upgrade</button>
       </div>
    </div>
+   <!-- Оверлей для затемнення фону -->
 
    <script src="js/script.js"></script>
 </body>

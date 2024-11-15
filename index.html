@@ -10,7 +10,15 @@
 
 <body>
    <div class="container">
+      <div class="music">
+         <audio id="background-music" loop autoplay>
+            <source src="sounds/bgmusic.wav" type="audio/mpeg">
+            Ваш браузер не підтримує елемент <code>audio</code>.
+         </audio>
+         <button id="toggle-music"><img src="img/music.png" alt=""></button>
+      </div>
       <h1>Your Knight</h1>
+
       <div class="character">
          <!-- Додаємо зображення лицаря -->
          <img id="knight-image" src="img/knightbased.png" alt="Knight Image">

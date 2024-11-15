@@ -117,3 +117,38 @@ body {
       opacity: 0;
    }
 }
+
+
+
+
+
+/* Анімація для плавної зміни прозорості */
+@keyframes fadeInOut {
+   0% {
+      opacity: 0;
+   }
+
+   50% {
+      opacity: 1;
+   }
+
+   100% {
+      opacity: 0;
+   }
+}
+
+.fade-in-out {
+   animation: fadeInOut 1s ease-in-out forwards;
+   /* Анімація триватиме 1 секунду */
+}
+
+.music {
+   display: flex;
+   justify-content: end;
+}
+
+#toggle-music {
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}

@@ -5,6 +5,29 @@ let knight = {
    armor: 5
 };
 
+
+// Створюємо обробник події для всіх кнопок на сторінці
+document.body.addEventListener('click', function (event) {
+   // Перевіряємо, чи елемент є кнопкою
+   if (event.target.tagName === 'BUTTON') {
+      // Створюємо новий об'єкт аудіо для кожного натискання кнопки
+      const buttonClickSound = new Audio('sounds/touch.mp3'); // Вказати правильний шлях до аудіофайлу
+      buttonClickSound.play();
+   }
+});
+const soundUpgrade = new Audio('sounds/newlvl.wav'); // Один звук для всіх апгрейдів
+// Функція для вмикання/вимикання фонової музики
+function toggleMusic() {
+   const music = document.getElementById("background-music");
+   if (music.paused) {
+      music.play();  // Вмикаємо музику
+   } else {
+      music.pause(); // Припаємо музику
+   }
+}
+
+// Додаємо кнопку для перемикання музики (якщо потрібно)
+document.getElementById("toggle-music").addEventListener("click", toggleMusic);
 // Змінна для зберігання попереднього зображення
 let prevImageSrc = "";
 
@@ -72,14 +95,24 @@ function updateStats() {
       newImageSrc = "img/knightbased.png"; // Базове зображення
    }
 
-   // Якщо зображення змінилося, показуємо феєрверк
+   // Оновлюємо зображення лише якщо воно змінилось
    if (newImageSrc !== prevImageSrc) {
-      prevImageSrc = newImageSrc;
-      showFireworks(); // Показуємо феєрверк, якщо зображення змінилося
-   }
+      prevImageSrc = newImageSrc; // Оновлюємо попереднє зображення
+      knightImage.src = newImageSrc; // Оновлюємо зображення лицаря
 
-   // Оновлюємо зображення лицаря
-   knightImage.src = newImageSrc;
+      // Показуємо феєрверк, якщо зображення змінилось
+      showFireworks();
+
+      // Додаємо анімацію (тільки після зміни зображення)
+      knightImage.classList.add("fade-in-out");
+
+      // Після завершення анімації видаляємо клас, щоб можна було знову застосувати
+      setTimeout(() => {
+         knightImage.classList.remove("fade-in-out");
+      }, 500); // Тривалість анімації
+
+      soundUpgrade.play();
+   }
 }
 
 // Функція для збільшення характеристик
